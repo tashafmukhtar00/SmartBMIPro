@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.tashyappshub.smartbmipro.R
+import com.tashyappshub.smartbmipro.databinding.FragmentGenderSelectionBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +24,8 @@ class GenderSelectionFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var _binding: FragmentGenderSelectionBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,7 +39,15 @@ class GenderSelectionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gender_selection, container, false)
+
+        // Initialize ViewBinding
+        _binding = FragmentGenderSelectionBinding.inflate(inflater, container, false)
+
+        binding.buttonContinue.setOnClickListener{
+            findNavController().navigate(R.id.action_genderSelectionFragment_to_inputValuesFragment)
+
+        }
+        return binding.root
     }
 
     companion object {
@@ -56,5 +68,10 @@ class GenderSelectionFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null // Prevent memory leaks
     }
 }

@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.tashyappshub.smartbmipro.R
+import com.tashyappshub.smartbmipro.databinding.FragmentGenderSelectionBinding
+import com.tashyappshub.smartbmipro.databinding.FragmentInputValuesBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,6 +25,9 @@ class InputValuesFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private var _binding: FragmentInputValuesBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,8 +41,14 @@ class InputValuesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_input_values, container, false)
-    }
+        // Initialize ViewBinding
+        _binding = FragmentInputValuesBinding.inflate(inflater, container, false)
+
+        binding.buttonContinue.setOnClickListener{
+            findNavController().navigate(R.id.action_inputValuesFragment_to_BMIResultFragment)
+
+        }
+        return binding.root}
 
     companion object {
         /**
