@@ -77,4 +77,11 @@ dependencies {
 
     // DataStore - SharedPreferences replacement for lightweight data storage
     implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+
+    // Navigation Component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
+
+
 }

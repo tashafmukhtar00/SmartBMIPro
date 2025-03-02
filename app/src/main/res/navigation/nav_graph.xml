@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/genderSelectionFragment">
+
+    <fragment
+        android:id="@+id/genderSelectionFragment"
+        android:name="com.tashyappshub.smartbmipro.ui.fragments.GenderSelectionFragment"
+        android:label="fragment_gender_selection"
+        tools:layout="@layout/fragment_gender_selection" >
+        <action
+            android:id="@+id/action_genderSelectionFragment_to_inputValuesFragment"
+            app:destination="@id/inputValuesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputValuesFragment"
+        android:name="com.tashyappshub.smartbmipro.ui.fragments.InputValuesFragment"
+        android:label="fragment_input_values"
+        tools:layout="@layout/fragment_input_values" >
+        <action
+            android:id="@+id/action_inputValuesFragment_to_BMIResultFragment"
+            app:destination="@id/BMIResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/BMIResultFragment"
+        android:name="com.tashyappshub.smartbmipro.ui.fragments.BMIResultFragment"
+        android:label="fragment_b_m_i_result"
+        tools:layout="@layout/fragment_b_m_i_result" />
+</navigation>
