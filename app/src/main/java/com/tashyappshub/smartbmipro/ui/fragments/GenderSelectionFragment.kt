@@ -43,10 +43,10 @@ class GenderSelectionFragment : Fragment() {
         // Initialize ViewBinding
         _binding = FragmentGenderSelectionBinding.inflate(inflater, container, false)
 
-        binding.buttonContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_genderSelectionFragment_to_inputValuesFragment)
-
-        }
+//        binding.buttonContinue.setOnClickListener{
+//            findNavController().navigate(R.id.action_genderSelectionFragment_to_inputValuesFragment)
+//
+//        }
         return binding.root
     }
 

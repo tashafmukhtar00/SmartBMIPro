@@ -44,10 +44,11 @@ class InputValuesFragment : Fragment() {
         // Initialize ViewBinding
         _binding = FragmentInputValuesBinding.inflate(inflater, container, false)
 
-        binding.buttonContinue.setOnClickListener{
-            findNavController().navigate(R.id.action_inputValuesFragment_to_BMIResultFragment)
+//        binding.buttonContinue.setOnClickListener{
+//            findNavController().navigate(R.id.action_inputValuesFragment_to_BMIResultFragment)
+//
+//        }
 
-        }
         return binding.root}
 
     companion object {

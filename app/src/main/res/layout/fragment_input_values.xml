@@ -1,26 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#8BC34A"
-    tools:context=".ui.fragments.InputValuesFragment">
+    android:padding="16dp"
+    android:background="@android:color/white">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_back"
+        android:contentDescription="Back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"/>
+
+    <!-- BMI Calculator Title -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <Button
-        android:id="@+id/button_continue"
+        android:id="@+id/tvBmiCalculator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Continue"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="BMI Calculator"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:shadowColor="#80000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="16dp"/>
+
+    <!-- Modify Values Text -->
+    <TextView
+        android:id="@+id/tvModifyValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Modify the values"
+        android:textSize="24sp"
+
+        android:textColor="#0A1207"
+        app:layout_constraintTop_toBottomOf="@id/tvBmiCalculator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Weight Input Box -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardWeight"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="#FFF6E5"
+        app:layout_constraintTop_toBottomOf="@id/tvModifyValues"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cardAge"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvWeightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight (kg)"
+                android:textSize="14sp"
+                android:textColor="#9E9E9E"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/tvWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="65"
+                android:textSize="32sp"
+                android:textColor="#B6862C"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="8dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnDecreaseWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Decrease Weight"
+                    android:src="@drawable/ic_minus" />
+
+                <ImageButton
+                    android:id="@+id/btnIncreaseWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Increase Weight"
+                    android:src="@drawable/ic_plus" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Age Input Box -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="#FFF6E5"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardWeight"
+        app:layout_constraintTop_toBottomOf="@id/tvModifyValues">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvAgeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Age"
+                android:textColor="#9E9E9E"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="26"
+                android:textColor="#B6862C"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnDecreaseAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Decrease Age"
+                    android:src="@drawable/ic_minus" />
+
+                <ImageButton
+                    android:id="@+id/btnIncreaseAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Increase Age"
+                    android:src="@drawable/ic_plus" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Height Selector -->
+
+
+        <!-- Card Background -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardHeight"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="#FFF6E5"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardWeight">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Height Label -->
+            <TextView
+                android:id="@+id/tvHeightLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Height (cm)"
+                android:textColor="#9E9E9E"
+                android:textSize="14sp" />
+
+            <!-- Height Value -->
+            <TextView
+                android:id="@+id/tvHeightValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="170"
+                android:textColor="#B6862C"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <!-- Custom SeekBar (Height Ruler) -->
+            <SeekBar
+                android:id="@+id/seekBarHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:max="250"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:progress="170"
+                android:progressDrawable="@drawable/custom_seekbar"
+                android:splitTrack="false"
+                android:thumb="@drawable/custom_thumb"
+                android:tickMark="@drawable/custom_tick_marks"
+                android:tickMarkTint="#C0C0C0" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <!-- Calculate Button -->
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="Calculate"
+        android:backgroundTint="#65B741"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/cardHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
